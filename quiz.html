@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>答题页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>答题页面</h1>
+    <div id="questionContainer"></div>
+    <button id="nextButton">下一题</button>
+    <button id="submitButton" style="display:none;">提交</button>
+
+    <div id="resultPage" style="display:none;">
+        <h2>答题结果</h2>
+        <p id="correctCount"></p>
+        <p id="incorrectCount"></p>
+        <p id="score"></p>
+        <button id="finishButton">完成</button>
+    </div>
+
+    <script>
+        let questions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let correctAnswersCount = 0;
+
+        // 加载题库
+        fetch('questions.json')  
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('网络响应失败');
+                }
+                return response.json();
+            })
+            .then(data => {
+                questions = data;
+                loadQuestion(); // 加载第一道题
+            })
+            .catch(error => {
+                console.error('加载题库失败:', error);
+            });
+
+        // 加载问题函数
+        function loadQuestion() {
+            if (currentQuestionIndex < questions.length) {
+                const question = questions[currentQuestionIndex];
+                const questionHtml = `
+                    <div class="question">
+                        <h2>${question.question}</h2>
+                        <form id="answerForm">
+                            ${question.options.map(option => `
+                                <label>
+                                    <input type="radio" name="answer" value="${option}">
+                                    ${option}
+                                </label><br>
+                            `).join('')}
+                        </form>
+                    </div>
+                `;
+                document.getElementById("questionContainer").innerHTML = questionHtml;
+                document.getElementById("nextButton").style.display = "inline";
+                document.getElementById("submitButton").style.display = "none";
+            } else {
+                document.getElementById("nextButton").style.display = "none";
+                document.getElementById("submitButton").style.display = "inline";
+            }
+        }
+
+        // 下一题按钮点击事件
+        document.getElementById("nextButton").addEventListener("click", function() {
+            const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+            if (selectedAnswer) {
+                userAnswers[currentQuestionIndex] = selectedAnswer.value;
+                // 检查是否答对
+                if (selectedAnswer.value === questions[currentQuestionIndex].correct) {
+                    correctAnswersCount++;
+                }
+                currentQuestionIndex++;
+                loadQuestion();
+            } else {
+                alert("请先选择一个答案！");
+            }
+        });
+
+        // 提交按钮点击事件
+        document.getElementById("submitButton").addEventListener("click", function() {
+            displayResults();
+        });
+
+        // 显示答题结果
+        function displayResults() {
+            document.getElementById("questionContainer").style.display = "none";
+            document.getElementById("nextButton").style.display = "none";
+            document.getElementById("submitButton").style.display = "none";
+            
+            // 计算结果
+            const incorrectAnswersCount = questions.length - correctAnswersCount;
+            const score = (correctAnswersCount / questions.length) * 100;
+            
+            document.getElementById("correctCount").innerText = `答对的题目数：${correctAnswersCount}`;
+            document.getElementById("incorrectCount").innerText = `答错的题目数：${incorrectAnswersCount}`;
+            document.getElementById("score").innerText = `您的得分：${score.toFixed(2)}%`;
+
+            // 显示结果页面
+            document.getElementById("resultPage").style.display = "block";
+        }
+
+        // 完成按钮点击事件
+        document.getElementById("finishButton").addEventListener("click", function() {
+            alert("感谢您的参与！");
+            // 可以添加更多逻辑，比如跳转到别的页面
+        });
+    </script>
+</body>
+</html>
