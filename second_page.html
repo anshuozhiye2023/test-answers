@@ -5,23 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>选择单位</title>
     <style>
-        body {
+        /* body {
             font-family: Arial, sans-serif;
             text-align: center;
             padding-top: 50px;
+        } */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('SecondPageBackground.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 10vh;
+            color: #fff;
+            margin: 0;
+        }
+
+        .content-wrapper {
+            margin-top: 15vh;
+        }
+
+        h1 {
+            margin-bottom: 30px; /* 标题与下拉框间距 */
+        }
+
+        #unitSelect {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            margin: 15px 0;
+            width: 220px; /* 统一输入框宽度 */
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        #startQuizButton {
+            margin-top: 25px;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 220px; /* 与下拉框同宽 */
         }
     </style>
 </head>
 <body>
-    <h1>请选择您的单位</h1>
-    <select id="unitSelect">
-        <option value="A">A单位</option>
-        <option value="B">B单位</option>
-        <option value="C">C单位</option>
-        <option value="D">D单位</option>
-    </select>
-    <br><br>
-    <button id="startQuizButton">确定</button>
+    <div class="content-wrapper">
+        <h1>请选择您的单位</h1>
+        <select id="unitSelect">
+            <option value="A">A单位</option>
+            <option value="B">B单位</option>
+            <option value="C">C单位</option>
+            <option value="D">D单位</option>
+        </select>
+        <br>
+        <button id="startQuizButton">确定</button>
+    </div>
 
     <script>
         document.getElementById("startQuizButton").addEventListener("click", function() {

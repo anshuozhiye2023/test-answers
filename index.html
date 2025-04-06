@@ -3,28 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关注公众号</title>
+    <title>2025年国家安全知识有奖竞答活动</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 50px;
+        /* 页面特定样式 */
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
         }
-        .qr-code {
-            margin: 20px;
+        
+        .header {
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 40px;
+        }
+        
+        .title {
+            color: #FFDC9C;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .subtitle {
+            color: #FFDC9C;
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            border: 2px solid #FFC670;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .shield-container {
+            position: relative;
+            margin: 20px 0 40px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .book-image {
+            width: 80%;
+            max-width: 300px;
+        }
+        
+        .shield {
+            position: absolute;
+            top: 10%;
+            width: 120px;
+            height: 135px;
+            background: linear-gradient(135deg, #FFF3CC 0%, #FFD700 60%, #FFA500 100%);
+            border-radius: 60% 60% 45% 45%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+            border: 3px solid #FFA500;
+        }
+        
+        .shield-text {
+            color: white;
+            font-size: 2.8rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .start-btn {
+            background: linear-gradient(to bottom, #FFEDCB 0%, #FFC107 100%);
+            color: #E63946;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border: 2px solid #FFD699;
+        }
+        
+        .start-btn:hover {
+            background: linear-gradient(to bottom, #FFD699 0%, #FFA000 100%);
+        }
+        
+        .participation-info {
+            color: white;
+            font-size: 1rem;
+            margin: 10px 0;
+            text-align: center;
+        }
+        
+        .activity-info {
+            background-color: white;
+            border-radius: 10px 10px 0 0;
+            width: 100%;
+            padding: 20px;
+            margin-top: 30px;
+            color: #333;
+        }
+        
+        .info-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        .info-icon {
+            margin-right: 10px;
+            color: #999;
+            font-size: 1.5rem;
+        }
+        
+        .prize-section {
+            margin-top: 20px;
+        }
+        
+        .prize-title {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .prize-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .prize-icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            background-color: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .prize-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .prize-desc {
+            flex: 1;
+        }
+        
+        .prize-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .prize-detail {
+            color: #666;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <h1>扫描二维码并关注我们的公众号</h1>
-    <div class="qr-code">
-        <img src="qrcode.jpg" alt="微信公众号二维码" width="200">
+    <div class="container">
+        <div class="header">
+            <div class="title">全民国家<br>安全教育日</div>
+            <div class="subtitle">2025年信宜市国家安全知识有奖竞答活动</div>
+        </div>
+        
+        <div class="shield-container">
+            <img src="book.png" alt="书本图片" class="book-image">
+            <div class="shield">
+                <div class="shield-text">4.15</div>
+            </div>
+        </div>
+        
+        <button class="start-btn" id="startBtn">开始挑战</button>
+        
+        <div class="participation-info">
+            您今天还有 2 次参与机会<br>
+            已有 8478 人参加活动
+        </div>
+        
+        <div class="activity-info">
+            <div class="info-header">
+                <span class="info-icon">📋</span>
+                <span>活动说明</span>
+            </div>
+            
+            <div class="prize-section">
+                <div class="prize-title">活动奖品</div>
+                
+                <div class="prize-item">
+                    <div class="prize-icon">
+                        <img src="gift.png" alt="特等奖">
+                    </div>
+                    <div class="prize-desc">
+                        <div class="prize-name">特等奖（4名）</div>
+                        <div class="prize-detail">中兴云PAD平板电脑等</div>
+                    </div>
+                </div>
+                
+                <div class="prize-item">
+                    <div class="prize-icon">
+                        <img src="gift.png" alt="一等奖">
+                    </div>
+                    <div class="prize-desc">
+                        <div class="prize-name">一等奖（10名）</div>
+                        <div class="prize-detail">智能手环等</div>
+                    </div>
+                </div>
+                
+                <div class="prize-item">
+                    <div class="prize-icon">
+                        <img src="gift.png" alt="二等奖">
+                    </div>
+                    <div class="prize-desc">
+                        <div class="prize-name">二等奖（20名）</div>
+                        <div class="prize-detail">精美书籍等</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <button id="nextButton">确定</button>
 
     <script>
-        document.getElementById("nextButton").addEventListener("click", function() {
-            window.location.href = "second_page.html";  // 跳转到第二个界面
+        // 点击开始挑战按钮跳转到答题页面
+        document.getElementById("startBtn").addEventListener("click", function() {
+            window.location.href = "quiz.html";
         });
     </script>
 </body>
