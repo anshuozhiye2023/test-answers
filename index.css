@@ -10,158 +10,172 @@ body {
     justify-content: flex-start;
     padding: 20px;
     padding-top: 5vh;
-    padding-bottom: 200px; /* 减少底部padding */
+    padding-bottom: 200px;
     color: #fff;
     margin: 0;
-    position: relative; /* 确保定位正确 */
+    position: relative;
 }
 
-/* index.html 样式 - 两张图片和纯色背景 */
+/* index.html 样式 */
 .index-page body {
-    background-color: #900A0B; /* 背景底色 */
+    background-color: #900A0B;
     position: relative;
 }
 
 /* 背景实现 - 上下两张图片，中间纯色 */
 .index-page body::before {
     content: "";
-    position: absolute; /* 允许背景随内容滚动 */
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: -1;
-    
-    /* 使用两张图片，纯色中间 */
     background: 
-        url('FirstPageTop.jpg') top center / 100% auto no-repeat,    /* 顶部图片 */
-        url('FirstPageBottom.jpg') bottom center / 100% auto no-repeat; /* 底部图片 */
-    
-    /* 设置背景图片位置 */
+        url('FirstPageTop.jpg') top center / 100% auto no-repeat,
+        url('FirstPageBottom.jpg') bottom center / 100% auto no-repeat;
     background-position: 
-        top center,       /* 顶部图片位置 */
-        bottom center;    /* 底部图片位置 */
-    
-    background-color: #900A0B; /* 确保中间有纯色背景 */
-    background-attachment: scroll; /* 允许背景滚动 */
-    height: auto; /* 高度自适应 */
-    min-height: 100%; /* 最小高度100% */
+        top center,
+        bottom center;
+    background-color: #900A0B;
+    background-attachment: scroll;
+    height: auto;
+    min-height: 100%;
 }
 
 .content-wrapper {
     margin: 0 auto;
-    margin-top: 22vh; /* 增加上边距，使内容显示在更靠下的位置 */
+    margin-top: 15vh;
     max-width: 600px;
     width: 100%;
     padding: 20px;
     position: relative;
     z-index: 1;
-    margin-bottom: 50px; /* 增加底部间距 */
 }
 
-/* 标题样式 */
-h1 {
-    font-size: 2.2em;
+/* 标题部分 */
+.header-section {
+    margin-bottom: 40px;
+}
+
+.main-title {
+    font-size: 4em;
     font-weight: bold;
-    margin-bottom: 5px;
-    color: gold;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 10px;
 }
 
-.subtitle {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    padding: 5px 10px;
-    background-color: rgba(255, 215, 0, 0.2);
-    border-radius: 20px;
-    display: inline-block;
+.sub-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 10px;
 }
 
-/* 盾牌图标 */
-.shield-icon {
+.activity-title {
+    font-size: 2.5em;
+    color: #F9E3BD;
+    margin-top: 100px;
+}
+
+/* 主办单位部分 */
+.organizer-section {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: rgba(155, 14, 13, 0.5);
+    border-radius: 10px;
+}
+
+.section-title {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    color: #FFD700;
+}
+
+.organizer-content {
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+/* 二维码部分 */
+.qr-section {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.qr-image {
     width: 200px;
     height: 200px;
-    margin: 20px auto;
-    background-color: gold;
-    border-radius: 50% 50% 5% 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-    position: relative;
+    margin-bottom: 15px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
 }
 
-.date {
-    font-size: 3em;
-    font-weight: bold;
-    color: white;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+.qr-text {
+    font-size: 1.2em;
+    color: #FFD700;
 }
 
 /* 表单区域 */
 .form-area {
-    margin: 20px 0;
+    margin: 30px 0;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-#unitSelect, #userName, #userPhone {
+#districtSelect, #userName, #userPhone {
     padding: 12px 20px;
     font-size: 1.1em;
     border-radius: 5px;
     border: 1px solid #ddd;
     width: 100%;
-    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 #startQuizButton {
     width: 100%;
     padding: 12px 20px;
     font-size: 1.2em;
-    margin-top: 10px;
-    background-color: #e74c3c;
+    margin-top: 20px;
+    background-color: #FFD700;
+    color: #900A0B;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
     transition: background-color 0.3s;
 }
 
 #startQuizButton:hover {
-    background-color: #c0392b;
+    background-color: #FFC000;
 }
 
-/* 信息区块 */
-.section {
-    background-color: rgba(230, 11, 11, 0.5);
+/* 活动说明部分 */
+.info-section {
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    margin: 20px 0;
+    padding: 20px;
     text-align: left;
-    overflow: hidden;
 }
 
-.section-title {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px 15px;
-    font-size: 1.2em;
-    display: flex;
-    align-items: center;
+.info-section h3 {
+    color: #FFD700;
+    margin: 15px 0 10px 0;
 }
 
-.icon {
-    margin-right: 10px;
-}
-
-.section-content {
-    padding: 15px;
-}
-
-/* 活动时间和主办单位 */
-.time-desc, .organizer {
+.time-desc {
+    font-size: 1.1em;
     margin: 10px 0;
-    line-height: 1.4;
 }
 
-/* 规则列表 */
 .rules {
-    padding-left: 25px;
+    padding-left: 20px;
+    margin: 10px 0;
 }
 
 .rules li {
@@ -169,154 +183,28 @@ h1 {
     line-height: 1.5;
 }
 
-/* 联系方式 */
-.contact-info {
-    line-height: 1.5;
-}
-
-/* 关注按钮 */
-.follow-button {
-    width: 100%;
-    padding: 12px 20px;
-    font-size: 1.2em;
-    margin-top: 20px;
-    margin-bottom: 30px; /* 增加底部间距 */
-    background-color: #3498db;
-}
-
-.follow-button:hover {
-    background-color: #2980b9;
-}
-
-/* 二维码弹窗 */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    position: relative;
-    max-width: 80%;
-}
-
-.qr-code {
-    margin: 20px 0;
-}
-
-.qr-instruction {
-    color: #333;
-    font-size: 1.2em;
-    margin-top: 15px;
-}
-
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    color: #333;
-    padding: 0;
-    margin: 0;
-    line-height: 1;
-    width: 30px;
-    height: 30px;
-}
-
-/* 按钮共享样式 */
-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1.1em;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    opacity: 0.9;
-}
-
-/* second_page.html 两图片背景实现 */
-.second-page body {
-    background-color: #1f3a70; /* 深蓝底色 */
-    position: relative;
-}
-
-.second-page body::before {
-    content: "";
-    position: absolute; /* 允许背景随内容滚动 */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    
-    /* 使用两张图片，纯色中间 */
-    background: 
-        url('SecondPageTop.jpg') top center / 100% auto no-repeat,    /* 顶部图片 */
-        url('SecondPageBottom.jpg') bottom center / 100% auto no-repeat; /* 底部图片 */
-    
-    /* 设置背景图片位置 */
-    background-position: 
-        top center,       /* 顶部图片位置 */
-        bottom center;    /* 底部图片位置 */
-    
-    background-color: #1f3a70; /* 确保中间有纯色背景 */
-    background-attachment: scroll; /* 允许背景滚动 */
-    height: auto; /* 高度自适应 */
-    min-height: 100%; /* 最小高度100% */
-}
-
-.second-page .content-wrapper {
-    margin-top: 15vh;
-}
-
-.second-page h1 {
-    margin-bottom: 30px;
-}
-
-/* second_page 特有样式 */
-#unitSelect {
-    width: 100%;
-}
-
-#startQuizButton {
-    width: 100%;
-}
-
 /* 响应式调整 */
 @media (max-width: 768px) {
     .content-wrapper {
-        padding: 10px;
+        padding: 15px;
+        margin-top: 10vh;
     }
     
-    h1 {
-        font-size: 1.8em;
+    .main-title {
+        font-size: 3em;
     }
     
-    .shield-icon {
+    .sub-title {
+        font-size: 1.5em;
+    }
+    
+    .activity-title {
+        font-size: 2.3em;
+        font-weight: bold;
+    }
+    
+    .qr-image {
         width: 150px;
         height: 150px;
-    }
-    
-    .date {
-        font-size: 2.5em;
     }
 } 

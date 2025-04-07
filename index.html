@@ -3,118 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025年国安宣工作室国家安全知识有奖竞答</title>
+    <title>415全民国家安全教育 走深走实十周年知识答题活动</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="content-wrapper">
+        <div class="header-section">
+            <div class="activity-title">知识答题活动</div>
+        </div>
+
+        <div class="organizer-section">
+            <div class="section-title">主办单位</div>
+            <div class="organizer-content">
+                石家庄市国家安全人民防线建设领导小组办公室<br>
+                西柏坡纪念馆
+            </div>
+        </div>
+
+        <div class="qr-section">
+            <img src="qrcode.png" alt="国家安全部官方微信公众号二维码" class="qr-image">
+            <div class="qr-text">关注国家安全部官方微信公众号</div>
+        </div>
 
         <div class="form-area">
-            <select id="unitSelect" aria-label="选择单位">
-                <option value="">请选择您的单位</option>
-                <option value="A">A单位</option>
-                <option value="B">B单位</option>
-                <option value="C">C单位</option>
-                <option value="D">D单位</option>
+            <select id="districtSelect" aria-label="选择地区">
+                <option value="">请选择您所在的区县</option>
+                <option value="长安区">长安区</option>
+                <option value="桥西区">桥西区</option>
+                <option value="新华区">新华区</option>
+                <option value="井陉矿区">井陉矿区</option>
+                <option value="裕华区">裕华区</option>
+                <option value="藁城区">藁城区</option>
+                <option value="鹿泉区">鹿泉区</option>
+                <option value="栾城区">栾城区</option>
+                <option value="井陉县">井陉县</option>
+                <option value="正定县">正定县</option>
+                <option value="行唐县">行唐县</option>
+                <option value="灵寿县">灵寿县</option>
+                <option value="高邑县">高邑县</option>
+                <option value="深泽县">深泽县</option>
+                <option value="赞皇县">赞皇县</option>
+                <option value="无极县">无极县</option>
+                <option value="平山县">平山县</option>
+                <option value="元氏县">元氏县</option>
+                <option value="赵县">赵县</option>
+                <option value="辛集市">辛集市</option>
+                <option value="晋州市">晋州市</option>
+                <option value="新乐市">新乐市</option>
             </select>
             
-            <input type="text" id="userName" placeholder="请输入您的姓名" aria-label="姓名">
-            <input type="tel" id="userPhone" placeholder="请输入您的手机号码" aria-label="手机号码">
+
             
-            <button id="startQuizButton">开始挑战</button>
+            <button id="startQuizButton">开始答题</button>
         </div>
         
         <div class="section info-section">
-            <div class="section-title">
-                <span class="icon">📋</span> 活动说明
-            </div>
             <div class="section-content">
                 <h3>活动时间</h3>
-                <div class="time-desc">2025年03月27日 00:00-2025年04月06日 23:59</div>
-                
-                <h3>主办单位</h3>
-                <div class="organizer">国安宣工作室</div>
+                <div class="time-desc">2025年4月10日至4月20日</div>
                 
                 <h3>活动说明</h3>
                 <ol class="rules">
                     <li>竞答活动为线上开展，每个公民有唯一次答题机会，共10题。</li>
                     <li>每个手机绑定一个个人和单位，恶意绑定或提供虚假信息将取消资格，请确保信息真实有效，遵守规则以保障活动公平。</li>
                     <li>题目设置：竞答题目为10道题（从200道题的题库中随机生成），全部答题结束后点击提交，系统将自动显示答题成绩和时间。</li>
-                    <li>本次活动最终解释权归信宜市委宣传部所有，奖品最终解释权归各赞助单位所有。</li>
                 </ol>
             </div>
-        </div>
-        
-        <div class="section contact-section">
-            <div class="section-title">
-                <span class="icon">👤</span> 联系方式
-            </div>
-            <div class="section-content contact-info">
-                <div>姓名：XXX</div>
-                <div>联系电话：13XXXXXXX9</div>
-            </div>
-        </div>
-        
-        <button id="followButton" class="follow-button">关注我们</button>
-    </div>
-    
-    <!-- 二维码弹窗 -->
-    <div id="qrModal" class="modal">
-        <div class="modal-content">
-            <div class="qr-code">
-                <img src="qrcode.png" alt="微信公众号二维码" width="200">
-            </div>
-            <div class="qr-instruction">长按识别二维码</div>
-            <button id="closeModal" class="close-button">×</button>
         </div>
     </div>
 
     <script>
-        // 开始答题按钮
         document.getElementById("startQuizButton").addEventListener("click", function() {
-            const unit = document.getElementById("unitSelect").value;
-            const name = document.getElementById("userName").value;
-            const phone = document.getElementById("userPhone").value;
+            const district = document.getElementById("districtSelect").value;
+           // const name = document.getElementById("userName").value;
+           // const phone = document.getElementById("userPhone").value;
             
-            if (!unit) {
-                alert("请选择您的单位");
+            if (!district) {
+                alert("请选择您所在的区县");
                 return;
             }
             
-            if (!name) {
-                alert("请输入您的姓名");
-                return;
-            }
+           // if (!name) {
+           //     alert("请输入您的姓名");
+           //     return;
+           // }
             
-            if (!phone) {
-                alert("请输入您的手机号码");
-                return;
-            }
+           // if (!phone) {
+           //     alert("请输入您的手机号码");
+           //     return;
+           // }
             
-            // 将用户信息存储在localStorage中
-            localStorage.setItem("selectedUnit", unit);
-            localStorage.setItem("userName", name);
-            localStorage.setItem("userPhone", phone);
+            localStorage.setItem("selectedDistrict", district);
+            //localStorage.setItem("userName", name);
+            //localStorage.setItem("userPhone", phone);
             
-            // 跳转到答题页面
             window.location.href = "quiz.html";
-        });
-        
-        // 关注我们按钮
-        document.getElementById("followButton").addEventListener("click", function() {
-            document.getElementById("qrModal").style.display = "flex";
-        });
-        
-        // 关闭二维码弹窗
-        document.getElementById("closeModal").addEventListener("click", function() {
-            document.getElementById("qrModal").style.display = "none";
-        });
-        
-        // 点击弹窗背景也可以关闭
-        document.getElementById("qrModal").addEventListener("click", function(event) {
-            if (event.target === this) {
-                this.style.display = "none";
-            }
         });
     </script>
 </body>

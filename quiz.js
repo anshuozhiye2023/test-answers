@@ -10,9 +10,9 @@ const scoreTextElem = document.getElementById('score-text');
 const quizContainer = document.getElementById('quiz-container');
 
 // 获取用户信息
-const userUnit = localStorage.getItem('selectedUnit') || '未指定单位';
-const userName = localStorage.getItem('userName') || '未知用户';
-const userPhone = localStorage.getItem('userPhone') || '';
+const userUnit = localStorage.getItem('selectedDistrict') || '未指定区县';
+//const userName = localStorage.getItem('userName') || '未知用户';
+//const userPhone = localStorage.getItem('userPhone') || '';
 
 let questions = []; // Array to hold the 10 selected questions
 let currentQuestionIndex = 0;
@@ -167,14 +167,12 @@ function endQuiz() {
   let resultHTML = `
     <h2>答题结束！</h2>
     <div class="user-info">
-      <p>姓名：${userName}</p>
-      <p>单位：${userUnit}</p>
+      <p>地区：${userUnit}</p>
       <p>用时：${totalTime}秒</p>
     </div>
     <div id="score-text">
       您的得分：${score} 分（共${questions.length}题，每题10分，满分100分）
     </div>
-    <button id="backHomeButton" class="back-button">返回主页</button>
   `;
   
   resultContainer.innerHTML = resultHTML;
