@@ -11,6 +11,77 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <!-- 整体布局容器 -->
+    <div class="page-container">
+        <!-- 顶部背景 -->
+        <div class="top-background-section">
+                <div class="header-section">
+                <div class="activity-title">知识答题活动</div>
+            </div>
+        </div>
+        
+        <!-- 内容区域 -->
+        <div class="content-wrapper">
+           
+       
+            <div class="organizer-section">
+               
+                <div class="section-title">主办单位</div>
+                <div class="organizer-content">
+                    石家庄市国家安全人民防线建设领导小组办公室<br>
+                    西柏坡纪念馆
+                </div>
+            </div>
+
+            <div class="form-area">
+                <select id="districtSelect" aria-label="选择地区">
+                    <option value="">请选择您所在的区县</option>
+                    <option value="长安区">长安区</option>
+                    <option value="桥西区">桥西区</option>
+                    <option value="新华区">新华区</option>
+                    <option value="井陉矿区">井陉矿区</option>
+                    <option value="裕华区">裕华区</option>
+                    <option value="藁城区">藁城区</option>
+                    <option value="鹿泉区">鹿泉区</option>
+                    <option value="栾城区">栾城区</option>
+                    <option value="井陉县">井陉县</option>
+                    <option value="正定县">正定县</option>
+                    <option value="行唐县">行唐县</option>
+                    <option value="灵寿县">灵寿县</option>
+                    <option value="高邑县">高邑县</option>
+                    <option value="深泽县">深泽县</option>
+                    <option value="赞皇县">赞皇县</option>
+                    <option value="无极县">无极县</option>
+                    <option value="平山县">平山县</option>
+                    <option value="元氏县">元氏县</option>
+                    <option value="赵县">赵县</option>
+                    <option value="辛集市">辛集市</option>
+                    <option value="晋州市">晋州市</option>
+                    <option value="新乐市">新乐市</option>
+                </select>
+                
+                <button id="startQuizButton">开始答题</button>
+            </div>
+            
+            <div class="section info-section">
+                <div class="section-content">
+                    <h3>活动时间</h3>
+                    <div class="time-desc">2025年4月10日至4月20日</div>
+                    
+                    <h3>活动说明</h3>
+                    <ol class="rules">
+                        <li>竞答活动为线上开展，每个公民有唯一次答题机会，共10题。</li>
+                        <li>每份答题绑定一个个人和单位，恶意绑定或提供虚假信息将取消资格，请确保信息真实有效，遵守规则以保障活动公平。</li>
+                        <li>题目设置：竞答题目为10道题（从200道题的题库中随机生成），全部答题结束后点击提交，系统将自动显示答题成绩和时间。</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部背景 -->
+        <div class="bottom-background-section"></div>
+    </div>
+
     <!-- QR Code Modal Popup -->
     <div id="qrModal" class="modal">
         <div class="modal-content">
@@ -24,64 +95,6 @@
         </div>
     </div>
 
-    <div class="content-wrapper">
-        <div class="header-section">
-            <div class="activity-title">知识答题活动</div>
-        </div>
-
-        <div class="organizer-section">
-            <div class="section-title">主办单位</div>
-            <div class="organizer-content">
-                石家庄市国家安全人民防线建设领导小组办公室<br>
-                西柏坡纪念馆
-            </div>
-        </div>
-
-        <div class="form-area">
-            <select id="districtSelect" aria-label="选择地区">
-                <option value="">请选择您所在的区县</option>
-                <option value="长安区">长安区</option>
-                <option value="桥西区">桥西区</option>
-                <option value="新华区">新华区</option>
-                <option value="井陉矿区">井陉矿区</option>
-                <option value="裕华区">裕华区</option>
-                <option value="藁城区">藁城区</option>
-                <option value="鹿泉区">鹿泉区</option>
-                <option value="栾城区">栾城区</option>
-                <option value="井陉县">井陉县</option>
-                <option value="正定县">正定县</option>
-                <option value="行唐县">行唐县</option>
-                <option value="灵寿县">灵寿县</option>
-                <option value="高邑县">高邑县</option>
-                <option value="深泽县">深泽县</option>
-                <option value="赞皇县">赞皇县</option>
-                <option value="无极县">无极县</option>
-                <option value="平山县">平山县</option>
-                <option value="元氏县">元氏县</option>
-                <option value="赵县">赵县</option>
-                <option value="辛集市">辛集市</option>
-                <option value="晋州市">晋州市</option>
-                <option value="新乐市">新乐市</option>
-            </select>
-            
-            <button id="startQuizButton">开始答题</button>
-        </div>
-        
-        <div class="section info-section">
-            <div class="section-content">
-                <h3>活动时间</h3>
-                <div class="time-desc">2025年4月10日至4月20日</div>
-                
-                <h3>活动说明</h3>
-                <ol class="rules">
-                    <li>竞答活动为线上开展，每个公民有唯一次答题机会，共10题。</li>
-                    <li>每个手机绑定一个个人和单位，恶意绑定或提供虚假信息将取消资格，请确保信息真实有效，遵守规则以保障活动公平。</li>
-                    <li>题目设置：竞答题目为10道题（从200道题的题库中随机生成），全部答题结束后点击提交，系统将自动显示答题成绩和时间。</li>
-                </ol>
-            </div>
-        </div>
-    </div>
-
     <script>
         // 检测微信浏览器
         function isWechat() {
@@ -89,25 +102,25 @@
             return /micromessenger/i.test(ua);
         }
         
-        // 修复移动端显示问题
-        function adjustHeight() {
-            let vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-            
+        // 修复显示问题
+        function adjustDisplay() {
             // 处理微信浏览器的特殊调整
             if (isWechat()) {
                 document.body.classList.add('wechat-browser');
-                document.documentElement.style.width = '100%';
-                document.body.style.width = '100%';
-                document.body.style.margin = '0 auto';
+            }
+            
+            // 确保内容区域居中
+            var contentWrapper = document.querySelector('.content-wrapper');
+            if (contentWrapper) {
+                contentWrapper.style.marginLeft = 'auto';
+                contentWrapper.style.marginRight = 'auto';
             }
         }
         
         // 初始化和调整窗口大小时都要执行
-        window.addEventListener('resize', adjustHeight);
-        window.addEventListener('orientationchange', adjustHeight);
-        document.addEventListener('DOMContentLoaded', adjustHeight);
-        adjustHeight();
+        window.addEventListener('resize', adjustDisplay);
+        window.addEventListener('orientationchange', adjustDisplay);
+        document.addEventListener('DOMContentLoaded', adjustDisplay);
         
         // 阻止移动端弹窗背景滚动
         document.getElementById("qrModal").addEventListener('touchmove', function(e) {
@@ -117,7 +130,7 @@
         // Show the QR code modal when the page loads
         window.onload = function() {
             document.getElementById("qrModal").style.display = "flex";
-            adjustHeight();
+            adjustDisplay();
             
             // 弹窗显示时禁止背景滚动
             document.body.style.overflow = 'hidden';
@@ -135,6 +148,7 @@
             document.getElementById("qrModal").style.display = "none";
             // 恢复背景滚动
             document.body.style.overflow = 'auto';
+            adjustDisplay();
         });
 
         document.getElementById("startQuizButton").addEventListener("click", function() {
