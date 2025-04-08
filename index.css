@@ -170,7 +170,7 @@ body {
 .activity-title {
     font-size: 2.5em;
     color: #F9E3BD;
-    margin-top: 50%; /* 移除顶部固定边距 */
+    margin-top: 65%; /* 移除顶部固定边距 */
 }
 
 /* 主办单位部分 */
