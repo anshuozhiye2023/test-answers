@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <!-- QR Code Modal Popup -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <div class="qr-section">
+                <img src="qrcode.png" alt="国家安全部官方微信公众号二维码" class="qr-image">
+                <div class="qr-text">国家安全部官方微信公众号</div>
+                <div class="qr-subtext">欢迎微信扫码关注</div>
+                <div class="qr-subtext">感谢您对国家安全工作的支持</div>
+                <button id="confirmedButton" class="confirmed-button">已关注，开始答题</button>
+            </div>
+        </div>
+    </div>
+
     <div class="content-wrapper">
         <div class="header-section">
             <div class="activity-title">知识答题活动</div>
@@ -18,11 +31,6 @@
                 石家庄市国家安全人民防线建设领导小组办公室<br>
                 西柏坡纪念馆
             </div>
-        </div>
-
-        <div class="qr-section">
-            <img src="qrcode.png" alt="国家安全部官方微信公众号二维码" class="qr-image">
-            <div class="qr-text">关注国家安全部官方微信公众号</div>
         </div>
 
         <div class="form-area">
@@ -52,8 +60,6 @@
                 <option value="新乐市">新乐市</option>
             </select>
             
-
-            
             <button id="startQuizButton">开始答题</button>
         </div>
         
@@ -73,30 +79,25 @@
     </div>
 
     <script>
+        // Show the QR code modal when the page loads
+        window.onload = function() {
+            document.getElementById("qrModal").style.display = "flex";
+        };
+
+        // Close the modal when the "已关注，开始答题" button is clicked
+        document.getElementById("confirmedButton").addEventListener("click", function() {
+            document.getElementById("qrModal").style.display = "none";
+        });
+
         document.getElementById("startQuizButton").addEventListener("click", function() {
             const district = document.getElementById("districtSelect").value;
-           // const name = document.getElementById("userName").value;
-           // const phone = document.getElementById("userPhone").value;
             
             if (!district) {
                 alert("请选择您所在的区县");
                 return;
             }
             
-           // if (!name) {
-           //     alert("请输入您的姓名");
-           //     return;
-           // }
-            
-           // if (!phone) {
-           //     alert("请输入您的手机号码");
-           //     return;
-           // }
-            
             localStorage.setItem("selectedDistrict", district);
-            //localStorage.setItem("userName", name);
-            //localStorage.setItem("userPhone", phone);
-            
             window.location.href = "quiz.html";
         });
     </script>
