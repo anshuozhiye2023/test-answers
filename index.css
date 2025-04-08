@@ -1,19 +1,43 @@
 /* 共享基础样式 */
+:root {
+    --vh: 1vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    height: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    top: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
     min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+    min-height: calc(var(--vh, 1vh) * 100);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding: 20px;
     padding-top: 5vh;
-    padding-bottom: 200px;
+    padding-bottom: 50px;
     color: #fff;
-    margin: 0;
+    margin: 0 auto;
     position: relative;
+    max-width: 100vw;
 }
 
 /* index.html 样式 */
@@ -25,7 +49,7 @@ body {
 /* 背景实现 - 上下两张图片，中间纯色 */
 .index-page body::before {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -41,6 +65,7 @@ body {
     background-attachment: scroll;
     height: auto;
     min-height: 100%;
+    width: 100%;
 }
 
 /* 弹窗样式 */
@@ -51,10 +76,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    height: calc(var(--vh, 1vh) * 100);
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .modal-content {
@@ -66,6 +94,8 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     position: relative;
     border: 2px solid #FFD700;
+    box-sizing: border-box;
+    margin: 0 auto;
 }
 
 .qr-section {
@@ -73,6 +103,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .qr-image {
@@ -82,6 +113,7 @@ body {
     background-color: #fff;
     padding: 10px;
     border-radius: 10px;
+    box-sizing: border-box;
 }
 
 .qr-text {
@@ -89,12 +121,16 @@ body {
     color: #FFD700;
     font-weight: bold;
     margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
 }
 
 .qr-subtext {
     font-size: 1.1em;
     color: #fff;
     margin-bottom: 5px;
+    text-align: center;
+    width: 100%;
 }
 
 .confirmed-button {
@@ -108,6 +144,9 @@ body {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 80%;
+    max-width: 250px;
+    -webkit-appearance: none;
 }
 
 .confirmed-button:hover {
@@ -117,16 +156,20 @@ body {
 .content-wrapper {
     margin: 0 auto;
     margin-top: 15vh;
+    margin-top: calc(var(--vh, 1vh) * 15);
     max-width: 600px;
     width: 100%;
     padding: 20px;
     position: relative;
     z-index: 1;
+    box-sizing: border-box;
+    left: 0;
 }
 
 /* 标题部分 */
 .header-section {
     margin-bottom: 40px;
+    width: 100%;
 }
 
 .main-title {
@@ -152,10 +195,12 @@ body {
 
 /* 主办单位部分 */
 .organizer-section {
-    margin: 30px 0;
+    margin: 30px auto;
     padding: 20px;
     background-color: rgba(155, 14, 13, 0.5);
     border-radius: 10px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .section-title {
@@ -171,10 +216,12 @@ body {
 
 /* 表单区域 */
 .form-area {
-    margin: 30px 0;
+    margin: 30px auto;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #districtSelect, #userName, #userPhone {
@@ -184,6 +231,9 @@ body {
     border: 1px solid #ddd;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.9);
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    margin: 0 auto;
 }
 
 #startQuizButton {
@@ -198,6 +248,9 @@ body {
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    margin: 0 auto;
 }
 
 #startQuizButton:hover {
@@ -210,6 +263,9 @@ body {
     border-radius: 10px;
     padding: 20px;
     text-align: left;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 20px auto;
 }
 
 .info-section h3 {
@@ -234,43 +290,184 @@ body {
 
 /* 响应式调整 */
 @media (max-width: 768px) {
+    body {
+        padding: 15px;
+        padding-top: 3vh;
+        padding-top: calc(var(--vh, 1vh) * 3);
+        padding-bottom: 50px;
+    }
+    
     .content-wrapper {
         padding: 15px;
-        margin-top: 10vh;
+        margin-top: 8vh;
+        margin-top: calc(var(--vh, 1vh) * 8);
+        width: 100%;
     }
     
     .main-title {
-        font-size: 3em;
+        font-size: 2.5em;
     }
     
     .sub-title {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
     
     .activity-title {
-        font-size: 2.3em;
+        font-size: 2em;
         font-weight: bold;
+        margin-top: 50px;
     }
     
     .qr-image {
-        width: 180px;
-        height: 180px;
+        width: 150px;
+        height: 150px;
     }
 
     .modal-content {
         padding: 20px 15px;
+        width: 85%;
+        max-width: 320px;
     }
 
     .qr-text {
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
 
     .qr-subtext {
-        font-size: 1em;
+        font-size: 0.9em;
     }
 
     .confirmed-button {
         padding: 10px 20px;
         font-size: 1.1em;
+        width: 90%;
     }
+    
+    .organizer-section, .info-section {
+        padding: 15px;
+        margin: 20px auto;
+    }
+    
+    .organizer-content, .rules li {
+        font-size: 0.9em;
+    }
+    
+    .section-title, .info-section h3 {
+        font-size: 1.1em;
+    }
+    
+    .time-desc {
+        font-size: 0.9em;
+    }
+    
+    #districtSelect, #startQuizButton {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+}
+
+/* 额外的小屏幕手机适配 */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+        padding-top: 2vh;
+        padding-top: calc(var(--vh, 1vh) * 2);
+    }
+    
+    .content-wrapper {
+        margin-top: 5vh;
+        margin-top: calc(var(--vh, 1vh) * 5);
+        padding: 10px;
+    }
+    
+    .activity-title {
+        font-size: 1.8em;
+        margin-top: 30px;
+    }
+    
+    .modal-content {
+        padding: 15px 10px;
+        width: 90%;
+    }
+    
+    .qr-image {
+        width: 130px;
+        height: 130px;
+        padding: 5px;
+    }
+    
+    .qr-text {
+        font-size: 1.1em;
+    }
+    
+    .confirmed-button {
+        padding: 8px 15px;
+        font-size: 1em;
+    }
+}
+
+/* 微信浏览器特定样式 */
+@media screen and (max-width: 100vw) {
+    html, body {
+        width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
+    body {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin: 0 auto !important;
+    }
+    
+    .content-wrapper {
+        width: 95% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}
+
+/* 专门为微信浏览器定制的修复样式 */
+.wechat-browser {
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+}
+
+.wechat-browser .content-wrapper {
+    width: 100% !important;
+    max-width: 95% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+.wechat-browser .organizer-section,
+.wechat-browser .form-area,
+.wechat-browser .info-section,
+.wechat-browser .header-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* 修复iOS上的表单元素外观 */
+input, select, button {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    border-radius: 5px !important;
 } 
